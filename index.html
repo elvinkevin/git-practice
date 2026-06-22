@@ -106,62 +106,78 @@
                     <p class="disclaimer">Personal relief: KES 2,400 / month applied automatically.</p>
                 </div>
             </div>
-            
-               <!-- Results Table -->
-                <div class="col-md-6">
-                    <div class="card p-4 h-100">
-                        <h5 class="mb-3">Deduction Breakdown</h5>
 
-                        <table class="table table-bordered align-middle">
-                            <thead>
-                                <tr class="table-dark">
-                                    <th>Tax Category</th>
-                                    <th>Amount (KES)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><i class="bi bi-wallet2 me-1 text-success"></i>Gross Salary</td>
-                                    <td id="gross">-</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <i class="bi bi-hospital me-1 text-danger"></i>SHA
-                                        <span class="info-badge badge-deduction">Deduction</span>
-                                    </td>
-                                    <td id="sha">-</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <i class="bi bi-shield-check me-1 text-danger"></i>NSSF
-                                        <span class="info-badge badge-deduction">Deduction</span>
-                                    </td>
-                                    <td id="nssf">-</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <i class="bi bi-heart-pulse me-1 text-danger"></i>AHL
-                                        <span class="info-badge badge-deduction">Deduction</span>
-                                    </td>
-                                    <td id="ahl">-</td>
-                                </tr>
-                                <tr class="table-light">
-                                    <td><i class="bi bi-receipt me-1"></i>Taxable Income</td>
-                                    <td id="taxable_income">-</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <i class="bi bi-percent me-1 text-danger"></i>PAYE
-                                        <span class="info-badge badge-deduction">Tax</span>
-                                    </td>
-                                    <td id="paye">-</td>
-                                </tr>
-                                <tr class="table-success">
-                                    <td><strong><i class="bi bi-cash-coin me-1"></i>Net Salary</strong></td>
-                                    <td id="net_salary"><strong>-</strong></td>
-                                </tr>
-                            </tbody>
-                        </table>
+            <!-- Results Table -->
+            <div class="col-md-6">
+                <div class="card p-4 h-100">
+                    <h5 class="mb-3">Deduction Breakdown</h5>
+
+                    <table class="table table-bordered align-middle">
+                        <thead>
+                            <tr class="table-dark">
+                                <th>Tax Category</th>
+                                <th>Amount (KES)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><i class="bi bi-wallet2 me-1 text-success"></i>Gross Salary</td>
+                                <td id="gross">-</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="bi bi-hospital me-1 text-danger"></i>SHA
+                                    <span class="info-badge badge-deduction">Deduction</span>
+                                </td>
+                                <td id="sha">-</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="bi bi-shield-check me-1 text-danger"></i>NSSF
+                                    <span class="info-badge badge-deduction">Deduction</span>
+                                </td>
+                                <td id="nssf">-</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="bi bi-heart-pulse me-1 text-danger"></i>AHL
+                                    <span class="info-badge badge-deduction">Deduction</span>
+                                </td>
+                                <td id="ahl">-</td>
+                            </tr>
+                            <tr class="table-light">
+                                <td><i class="bi bi-receipt me-1"></i>Taxable Income</td>
+                                <td id="taxable_income">-</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="bi bi-percent me-1 text-danger"></i>PAYE
+                                    <span class="info-badge badge-deduction">Tax</span>
+                                </td>
+                                <td id="paye">-</td>
+                            </tr>
+                            <tr class="table-success">
+                                <td><strong><i class="bi bi-cash-coin me-1"></i>Net Salary</strong></td>
+                                <td id="net_salary"><strong>-</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <span class="text-muted" style="font-size:.78rem;"><span
+                                class="info-badge badge-deduction">Deduction</span> Statutory deduction</span>
+                        <span class="text-muted" style="font-size:.78rem;"><span
+                                class="info-badge badge-relief">Relief</span> Applied automatically</span>
+                    </div>
+                    <p class="disclaimer mt-3">
+                        <i class="bi bi-info-circle me-1"></i>
+                        Estimates based on KRA guidelines. Consult a certified tax professional for personalised
+                        advice.
+                    </p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
 </body>
 
 </html>
