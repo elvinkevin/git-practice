@@ -121,4 +121,11 @@ class Bank: # Capitalized for standard naming conventions
         return self.__accounts.get(account_number, None)
 
 
- 
+#  def profit_per_product():
+#     cur.execute("""
+#         select products.name as p_name , sum(sales.quantity *( products.selling_price - 
+#         products.buying_price))  as total_sales from products join sales on sales.pid = products.id group by p_name;
+#     """)
+#     product_profit = cur.fetchall()
+#     return product_profit
+# conn.commit()
