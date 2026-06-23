@@ -44,7 +44,7 @@ Choose a branching strategy that fits your team's size and release cadence:
 
 ---
 
-### 📏 2.2 Branch Management Best Practices
+###  2.2 Branch Management Best Practices
 
 * Use **short-lived branches** — merge frequently to avoid complex rebases
 * Follow **naming conventions** — `feature/`, `bugfix/`, `release/`, `hotfix/`
@@ -53,7 +53,7 @@ Choose a branching strategy that fits your team's size and release cadence:
 
 ---
 
-### ⚙️ 2.3 Step-by-Step Feature Branch Workflow
+###  2.3 Step-by-Step Feature Branch Workflow
 
 ```bash
 # 1. Ensure you are on main and have the latest updates
@@ -384,7 +384,7 @@ git push origin feature/payment-integration
 * If already pushed → prefer `git revert` (safe)
 * Avoid `git push --force` on shared branches
 * Use `git cherry-pick` to apply commits to the correct branch
-* Always double-check your branch before pushing 🚀
+* Always double-check your branch before pushing 
 
 ---
 
