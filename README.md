@@ -204,7 +204,13 @@ git switch feature/login-page
 * If already pushed, recovery requires a different approach (e.g., revert or force push)
 
 ---
-
+scenario 3
+when working with multiple branches at the same time one may make a mistake and push to the wrong branch. using the previous method to resolve this might not work well.
+for this we introduce git cherry-pick
+say you have a feature/login-form and a hotfix/authentication
+you accidentally commit code meant for the authentication branch to the login branch.
+steps:
+1.  
 
 
 ##  Summary
