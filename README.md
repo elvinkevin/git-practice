@@ -284,7 +284,6 @@ git reset --hard HEAD~1
   * Or use `git push --force` (only if you understand the risks)
 
 ---
-
 ##  Summary
 
 * Conflicts are normal — resolve them manually and commit
@@ -297,11 +296,99 @@ git reset --hard HEAD~1
 
 💡 *Pro tip: Small, frequent commits make mistakes easier to fix and reduce recovery complexity.*
 
+##  Scenario 4: Pushing to the Wrong Branch (After Push)
 
+Mistakes become more critical when you’ve already **pushed commits to the wrong branch**, especially if others may have pulled that code.
 
+---
 
+###  Example Scenario
 
+You intended to push changes to:
 
+* `feature/payment-integration`
+
+But accidentally pushed to:
+
+* `main` 
+
+---
+
+##  Recovery Strategies
+
+###  Option 1: Safe Fix (Recommended for Shared Branches)
+
+If the branch (e.g., `main`) is shared with others, **do not rewrite history**.
+
+Instead, use `git revert` to undo the changes safely.
+
+```bash
+# Identify the commit hash
+git log --oneline
+
+# Revert the incorrect commit
+git revert <commit-hash>
+
+# Push the fix
+git push origin main
+```
+
+👉 This creates a **new commit that undoes the changes**, preserving history and avoiding conflicts for teammates.
+
+---
+
+###  Option 2: Rewrite History (Use With Caution)
+
+If you're working **solo** or absolutely sure no one else has pulled the changes:
+
+```bash
+# Reset branch to previous state
+git reset --hard HEAD~1
+
+# Force push to overwrite remote history
+git push --force origin main
+```
+
+---
+
+###  Critical Warnings
+
+* `git push --force` **rewrites history** — dangerous in team environments
+* Teammates may experience broken histories or conflicts
+* Only use force push when:
+
+  * You are working alone
+  * Or your team explicitly agrees
+
+---
+
+##  Moving the Commit to the Correct Branch
+
+After fixing the wrong branch, apply the commit where it belongs:
+
+```bash
+# Switch to correct branch
+git checkout feature/payment-integration
+
+# Bring back the commit
+git cherry-pick <commit-hash>
+
+# Push correctly
+git push origin feature/payment-integration
+```
+
+---
+
+##  Summary
+
+* If already pushed → prefer `git revert` (safe)
+* Avoid `git push --force` on shared branches
+* Use `git cherry-pick` to apply commits to the correct branch
+* Always double-check your branch before pushing 🚀
+
+---
+
+💡 *Pro tip: Use `git status` and `git branch` before every push—it saves you from this entire scenario.*
 
 
 ##  Summary
