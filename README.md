@@ -116,41 +116,110 @@ This command:
 👉 Keeps your local environment clean and up to date.
 
 ---
-# Handling Merge Conflicts
-not all merges will be completed with a green flag, some will raise errors which is to be expected as a developer.
-in this section we will cover the recovery techniques when a conflict arises.
-. scenario one
-Merge conflicts happen when two branches change the same line of the same file, and Git doesn't know which version to keep.
+##  Handling Merge Conflicts
 
-Step-by-Step Resolution Workflow:
-Identify the conflict: When you try to merge or pull, Git will stop and flag the conflicting files.
+Not all merges complete smoothly — conflicts are a normal part of development. This section covers practical recovery techniques when they occur.
 
-Open the file: Look for the conflict markers inserted by Git:
+---
 
-<<<<<<< HEAD: Your current local changes.
+##  Scenario 1: Merge Conflicts
 
-=======: The dividing line between changes.
+Merge conflicts happen when two branches modify the same line in a file, and Git cannot determine which version to keep.
 
->>>>>>> branch-name: The incoming changes from the other branch.
+###  Step-by-Step Resolution Workflow
 
-Clean up the code: Delete the markers (<<<<<<<, =======, >>>>>>>) and manually edit the code to keep what you actually need.
+**1. Identify the conflict**
 
-Finalize the merge:
+When running `git merge` or `git pull`, Git will stop and flag the conflicting files.
+
+---
+
+**2. Open the file**
+
+Look for conflict markers inserted by Git:
+
+```text
+<<<<<<< HEAD
+Your current local changes
+=======
+Incoming changes from another branch
+>>>>>>> branch-name
+```
+
+---
+
+**3. Clean up the code**
+
+* Remove the markers: `<<<<<<<`, `=======`, `>>>>>>>`
+* Manually edit and keep the correct code (or combine both changes)
+
+---
+
+**4. Finalize the merge**
+
+```bash
 # Stage the resolved file
 git add <filename>
 
-# Commit the resolution to complete the merge
+# Commit the resolution
 git commit -m "fix: resolve merge conflict in automation script"
 
-# Push the clean updates
+# Push the updated branch
 git push origin <branch-name>
+```
 
-scenario 2
-## commiting to a wrong branch
-lets say you are working with two branches : your main brach and a feature/login-page branch
-you accidentally *commit* code to your main branch instead of the your feature branch how do you recover:
-step 1
-if you have not yet pushed your changes and they are still in the commit stage, from your main  
+---
+
+##  Scenario 2: Committing to the Wrong Branch
+
+Imagine you have:
+
+* `main` branch
+* `feature/login-page` branch
+
+You accidentally commit changes to `main` instead of your feature branch.
+
+---
+
+###  Recovery Steps (Before Push)
+
+If you **haven’t pushed yet**, you can safely fix this:
+
+```bash
+# Reset main branch to match remote (discarding the accidental commit)
+git reset --hard origin/main
+
+# Switch to your feature branch
+git switch feature/login-page
+```
+
+ Your commit will still be available in your Git history and can be recovered on the correct branch.
+
+---
+
+###  Important Notes
+
+* `git reset --hard` will discard uncommitted changes — use with caution
+* This workflow only works safely if changes have **not been pushed**
+* If already pushed, recovery requires a different approach (e.g., revert or force push)
+
+---
+
+
+
+##  Summary
+
+* Conflicts are normal — resolve them manually and commit
+* Always review conflict markers carefully
+* Fix wrong-branch commits early before pushing
+* Keep branches clean and intentional
+
+---
+
+💡 *Pro tip: Frequent pulls and small commits reduce the chances of painful conflicts.*
+
+
+
 
 
 ##  Summary
