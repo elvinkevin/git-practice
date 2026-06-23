@@ -116,6 +116,42 @@ This command:
 👉 Keeps your local environment clean and up to date.
 
 ---
+# Handling Merge Conflicts
+not all merges will be completed with a green flag, some will raise errors which is to be expected as a developer.
+in this section we will cover the recovery techniques when a conflict arises.
+. scenario one
+Merge conflicts happen when two branches change the same line of the same file, and Git doesn't know which version to keep.
+
+Step-by-Step Resolution Workflow:
+Identify the conflict: When you try to merge or pull, Git will stop and flag the conflicting files.
+
+Open the file: Look for the conflict markers inserted by Git:
+
+<<<<<<< HEAD: Your current local changes.
+
+=======: The dividing line between changes.
+
+>>>>>>> branch-name: The incoming changes from the other branch.
+
+Clean up the code: Delete the markers (<<<<<<<, =======, >>>>>>>) and manually edit the code to keep what you actually need.
+
+Finalize the merge:
+# Stage the resolved file
+git add <filename>
+
+# Commit the resolution to complete the merge
+git commit -m "fix: resolve merge conflict in automation script"
+
+# Push the clean updates
+git push origin <branch-name>
+
+scenario 2
+## commiting to a wrong branch
+lets say you are working with two branches : your main brach and a feature/login-page branch
+you accidentally *commit* code to your main branch instead of the your feature branch how do you recover:
+step 1
+if you have not yet pushed your changes and they are still in the commit stage, from your main  
+
 
 ##  Summary
 
