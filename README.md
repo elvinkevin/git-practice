@@ -204,25 +204,101 @@ git switch feature/login-page
 * If already pushed, recovery requires a different approach (e.g., revert or force push)
 
 ---
-scenario 3
-when working with multiple branches at the same time one may make a mistake and push to the wrong branch. using the previous method to resolve this might not work well.
-for this we introduce git cherry-pick
-say you have a feature/login-form and a hotfix/authentication
-you accidentally commit code meant for the authentication branch to the login branch.
-steps:
-1.  
+##  Scenario 3: Pushing to the Wrong Branch (Using `git cherry-pick`)
 
+When working across multiple branches, it’s easy to accidentally commit and push code to the wrong branch. In such cases, `git cherry-pick` is a precise way to move commits where they actually belong.
+
+---
+
+###  Example Scenario
+
+You have two branches:
+
+* `feature/login-form`
+* `hotfix/authentication`
+
+You accidentally commit changes intended for `hotfix/authentication` onto `feature/login-form`.
+
+---
+
+###  Recovery Steps
+
+**1. Identify the commit**
+
+Run:
+
+```bash
+git log --oneline
+```
+
+* Copy the commit hash (usually a short 7-character string)
+
+---
+
+**2. Apply the commit to the correct branch**
+
+```bash
+# Switch to the correct branch
+git checkout hotfix/authentication
+
+# Apply the commit from the other branch
+git cherry-pick <commit-hash>
+```
+
+👉 This **copies** the commit into the current branch (it does not move it).
+
+---
+
+**3. Push the corrected branch**
+
+```bash
+git push origin hotfix/authentication
+```
+
+---
+
+**4. Clean up the wrong branch**
+
+Go back to the branch that received the commit by mistake:
+
+```bash
+git checkout feature/login-form
+```
+
+If the commit has **not been pushed**, you can safely remove it:
+
+```bash
+git reset --hard HEAD~1
+```
+
+---
+
+###  Important Corrections & Notes
+
+* `git cherry-pick` **duplicates** a commit — it does not transfer it
+* Your original commit will still exist on the wrong branch until you remove it
+* `git reset --hard HEAD~1` removes the latest commit locally
+* If the commit was already pushed:
+
+  * Prefer using `git revert` instead of `reset`
+  * Or use `git push --force` (only if you understand the risks)
+
+---
 
 ##  Summary
 
 * Conflicts are normal — resolve them manually and commit
 * Always review conflict markers carefully
-* Fix wrong-branch commits early before pushing
+* Fix wrong-branch commits early (before pushing if possible)
+* Use `git cherry-pick` to move commits across branches safely
 * Keep branches clean and intentional
 
 ---
 
-💡 *Pro tip: Frequent pulls and small commits reduce the chances of painful conflicts.*
+💡 *Pro tip: Small, frequent commits make mistakes easier to fix and reduce recovery complexity.*
+
+
+
 
 
 
