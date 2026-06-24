@@ -130,3 +130,4 @@ class Bank: # Capitalized for standard naming conventions
 #     return product_profit
 # conn.commit()
 AWS_SECRET_ACCESS_KEY="wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+GEMINI_API_KEY="AIzaSyAq3AuqPG2VJbCHpLRD4wMNUiAoDlGzfm9"
