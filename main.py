@@ -129,3 +129,4 @@ class Bank: # Capitalized for standard naming conventions
 #     product_profit = cur.fetchall()
 #     return product_profit
 # conn.commit()
+AWS_SECRET_ACCESS_KEY="wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
